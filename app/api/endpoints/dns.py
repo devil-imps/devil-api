@@ -118,7 +118,7 @@ async def dns_add_record(data: DNSAddRecord):
         ) from exc
 
 
-@router.get("/templates", summary="List DNS templates")
+@router.get("/templates", summary="List DNS templates", tags=["read-only"])
 async def dns_templates():
     """
     List available DNS templates.
@@ -133,7 +133,7 @@ async def dns_templates():
         ) from exc
 
 
-@router.get("/list", summary="List DNS zones or records")
+@router.get("/list", summary="List DNS zones or records", tags=["read-only"])
 async def dns_list(
     dns_domain: str | None = Query(
         None,

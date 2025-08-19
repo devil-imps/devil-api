@@ -91,7 +91,7 @@ async def ftp_quota(data: FTPQuota):
         ) from exc
 
 
-@router.get("/list", summary="List FTP accounts")
+@router.get("/list", summary="List FTP accounts", tags=["read-only"])
 async def ftp_list():
     """
     List all FTP accounts.

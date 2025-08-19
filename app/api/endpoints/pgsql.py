@@ -81,7 +81,7 @@ async def pgsql_extensions(data: PgSQLExtension):
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@router.get("/list", summary="List PostgreSQL databases and users")
+@router.get("/list", summary="List PostgreSQL databases and users", tags=["read-only"])
 async def pgsql_list():
     """
     List PostgreSQL databases and users.

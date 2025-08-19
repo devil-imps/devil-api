@@ -100,7 +100,7 @@ async def www_restart(www_domain: str = Path(..., description="Website domain"))
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@router.get("/list", summary="List websites")
+@router.get("/list", summary="List websites", tags=["read-only"])
 async def www_list():
     """List websites.
 
@@ -222,7 +222,7 @@ async def www_stats_domain_del(data: WWWStatsDomainDel):
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@router.get("/stats/list", summary="List stats users/domains")
+@router.get("/stats/list", summary="List stats users/domains", tags=["read-only"])
 async def www_stats_list():
     """
     List Matomo stats users and domains.

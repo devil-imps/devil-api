@@ -151,7 +151,7 @@ async def repo_account_passwd(data: RepoAccountPasswd):
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@router.get("/list", summary="List repositories or accounts")
+@router.get("/list", summary="List repositories or accounts", tags=["read-only"])
 async def repo_list(
     repo_type: RepoType | None = Query(
         None,

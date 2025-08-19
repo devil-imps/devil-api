@@ -140,7 +140,7 @@ async def mail_quota(data: MailQuota):
         ) from exc
 
 
-@router.get("/list", summary="List mail domains or accounts")
+@router.get("/list", summary="List mail domains or accounts", tags=["read-only"])
 async def mail_list(
     email_domain: str | None = Query(
         None, description="Optional email domain to filter results"
@@ -196,7 +196,9 @@ async def mail_whitelist_del(
         ) from exc
 
 
-@router.get("/whitelist/list", summary="List mail whitelist domains")
+@router.get(
+    "/whitelist/list", summary="List mail whitelist domains", tags=["read-only"]
+)
 async def mail_whitelist_list():
     """
     List all whitelisted mail domains.
@@ -228,7 +230,7 @@ async def mail_dkim_sign(data: MailDKIM):
         ) from exc
 
 
-@router.get("/dkim/dns/{domain}", summary="Get DKIM DNS record")
+@router.get("/dkim/dns/{domain}", summary="Get DKIM DNS record", tags=["read-only"])
 async def mail_dkim_dns(
     domain: str = Path(..., description="Domain to get DKIM DNS record for"),
     print_record: bool = Query(

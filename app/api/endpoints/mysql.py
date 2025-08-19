@@ -189,7 +189,7 @@ async def mysql_passwd(data: MySQLPasswd):
         ) from exc
 
 
-@router.get("/list", summary="List MySQL databases and users")
+@router.get("/list", summary="List MySQL databases and users", tags=["read-only"])
 async def mysql_list():
     """
     List MySQL databases and users.

@@ -10,7 +10,7 @@ from app.services.socket_client import execute_devil_command
 router = APIRouter(prefix="/info", tags=["info"])
 
 
-@router.get("/limits", summary="Account limits")
+@router.get("/limits", summary="Account limits", tags=["read-only"])
 async def info_limits():
     """
     Return account limits information.
@@ -25,7 +25,7 @@ async def info_limits():
         ) from exc
 
 
-@router.get("/account", summary="Basic account info")
+@router.get("/account", summary="Basic account info", tags=["read-only"])
 async def info_account():
     """
     Return basic account information.

@@ -56,7 +56,7 @@ async def port_del(
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@router.get("/list", summary="List reserved ports")
+@router.get("/list", summary="List reserved ports", tags=["read-only"])
 async def port_list():
     """
     List all reserved ports.

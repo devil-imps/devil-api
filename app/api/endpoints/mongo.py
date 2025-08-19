@@ -62,7 +62,7 @@ async def mongo_passwd(data: MongoPasswd):
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@router.get("/list", summary="List MongoDB databases and users")
+@router.get("/list", summary="List MongoDB databases and users", tags=["read-only"])
 async def mongo_list():
     """
     List MongoDB databases and users.

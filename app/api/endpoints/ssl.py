@@ -67,7 +67,7 @@ async def ssl_www_del(
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@router.post("/www/get", summary="Get WWW SSL certificate")
+@router.post("/www/get", summary="Get WWW SSL certificate", tags=["read-only"])
 async def ssl_www_get(data: SSLWWWGet):
     """
     Get certificate and key for a WWW SSL entry.
@@ -84,7 +84,7 @@ async def ssl_www_get(data: SSLWWWGet):
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@router.get("/www/list", summary="List WWW SSL certificates")
+@router.get("/www/list", summary="List WWW SSL certificates", tags=["read-only"])
 async def ssl_www_list():
     """
     List all WWW SSL certificates.
@@ -134,7 +134,7 @@ async def ssl_mail_del(ssl_ip: str = Path(..., description="SSL IP address")):
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@router.post("/mail/get", summary="Get mail SSL certificate")
+@router.post("/mail/get", summary="Get mail SSL certificate", tags=["read-only"])
 async def ssl_mail_get(data: SSLMailGet):
     """
     Get certificate and key for a mail SSL entry.
@@ -148,7 +148,7 @@ async def ssl_mail_get(data: SSLMailGet):
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
-@router.get("/mail/list", summary="List mail SSL certificates")
+@router.get("/mail/list", summary="List mail SSL certificates", tags=["read-only"])
 async def ssl_mail_list():
     """
     List all mail SSL certificates.

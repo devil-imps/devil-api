@@ -11,7 +11,7 @@ from app.services.socket_client import execute_devil_command
 router = APIRouter(prefix="/vhost", tags=["vhost"])
 
 
-@router.get("/list", summary="List IP addresses")
+@router.get("/list", summary="List IP addresses", tags=["read-only"])
 async def vhost_list(
     vhost_type: VHostType | None = Query(
         None, description="Vhost type: private, public or all"
