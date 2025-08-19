@@ -57,7 +57,7 @@ app.include_router(www.router, dependencies=protected_dependency)
 
 
 # Health check endpoint
-@app.get("/health", tags=["meta"])
+@app.get("/health", tags=["meta"], include_in_schema=False)
 async def health():
     return {"status": "ok"}
 
